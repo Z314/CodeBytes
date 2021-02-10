@@ -1,0 +1,61 @@
+# Python program using the turtle module
+# Python version = 3.6
+# This program makes a pattern using circles
+# Author: John Patel
+
+# import Python module
+import turtle as t
+import random as rnd
+
+# set screen window size (x, y)
+screen = t.Screen()
+screen.screensize(2000 , 1000)
+
+# create an object (myTurtle) from the Turtle class within the turtle module
+myTurtle = t.Turtle()
+myTurtle.screen.colormode(255)
+
+
+def makeCircle(r, a):
+    """
+    The function makes a circle using the circle method
+    
+    Parameters:
+        r: radius of circle
+        a: angle/arc extent
+        
+    Returns:
+        none
+    """
+    myTurtle.circle(r, a)
+
+ 
+def thePenColor():
+    """
+    The function chooses the color of the circle (random color)
+    
+    Parameters:
+        none
+        
+    Returns:
+        none
+    """
+    red = rnd.randint(0, 255)
+    green = rnd.randint(0, 255)
+    blue = rnd.randint(0, 255)
+    myTurtle.pencolor((red, green, blue))
+
+
+# Draw a sequence of circles
+NumberCircles = 10
+moveDistance = 40
+turnAngle = 30
+radius = 40
+angle = 360
+
+for i in range(NumberCircles):
+    thePenColor()
+    makeCircle(radius, angle)
+    myTurtle.forward(moveDistance)
+
+t.done()
